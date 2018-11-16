@@ -11,18 +11,18 @@
 </head>
 <body ng-app="plunker" ng-cloak>
     <div ng-controller="MainCtrl">
-      <span>Date 1: {{date1}}</span><br/>
-      <span>Date 2: {{date2}}</span><br/>
-      <span>Date 3: {{date3}}</span><br/>
-      <span>Date 4: {{date4}}</span>
+        <span>Date 1: {{date1}}</span><br/>
+        <span>Date 2: {{date2}}</span><br/>
+        <span>Date 3: {{date3}}</span><br/>
+        <span>Date 4: {{date4}}</span>
     </div>
     <script>
         angular.module('plunker', []).controller('MainCtrl', function($scope) {
-          $scope.name = 'Plunker';
-          $scope.date1 = getDate('1995-12-17T03:24:00');
-          $scope.date2 = getDate('1969-01-01T00:00:00');
-          $scope.date3 = getDateAlt('1995-12-17T03:24:00');
-          $scope.date4 = getDateAlt('1969-01-01T00:00:00');
+            $scope.name = 'Plunker';
+            $scope.date1 = getDate('1995-12-17T03:24:00');
+            $scope.date2 = getDate('1969-01-01T00:00:00');
+            $scope.date3 = getDateAlt('1995-12-17T03:24:00');
+            $scope.date4 = getDateAlt('1969-01-01T00:00:00');
         });
         function format(d) {
             var f = Intl.DateTimeFormat('en-US', {
@@ -39,8 +39,7 @@
             return format(d);
         }
         function getDateAlt(s) {
-            var d = new Date(s);
-            return new Date(d).toDateString();
+            return format(s);
         }
     </script>
 </body>
