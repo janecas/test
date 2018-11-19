@@ -11,33 +11,31 @@
 </head>
 <body ng-app="plunker" ng-cloak>
     <div ng-controller="MainCtrl">
-        <span>Date 1: {{date1}}</span><br/>
-        <span>Date 2: {{date2}}</span><br/>
-        <span>Date 3: {{date3}}</span><br/>
-        <span>Date 4: {{date4}}</span>
+        <span>Date 1: {{format('1995-12-17T03:24:00')}}</span><br/>
+        <span>Date 2: {{format('1969-01-01T00:00:00')}}</span><br/>
+        <span>Date 3: {{format('1995/12/17 03:24:00')}}</span><br/>
+        <span>Date 4: {{format('1969/01/01 00:00:00')}}</span>
     </div>
     <script>
         angular.module('plunker', []).controller('MainCtrl', function($scope) {
             $scope.name = 'Plunker';
-            $scope.date1 = getDate('1995-12-17T03:24:00');
-            $scope.date2 = getDate('1969-01-01T00:00:00');
-            $scope.date3 = getDate('1995/12/17 03:24:00');
-            $scope.date4 = getDate('1969/01/01 00:00:00');
+//             $scope.date1 = getDate('1995-12-17T03:24:00');
+//             $scope.date2 = getDate('1969-01-01T00:00:00');
+//             $scope.date3 = getDate('1995/12/17 03:24:00');
+//             $scope.date4 = getDate('1969/01/01 00:00:00');
+            
+            $scope.format= function(s) {
+                var d = new Date(s);
+                var f = Intl.DateTimeFormat('en-US', {
+                    nullString: '–',
+                    dataType: 'date',
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric'
+                });
+                return f.format(d);
+            }
         });
-        function format(d) {
-            var f = Intl.DateTimeFormat('en-US', {
-                nullString: '–',
-                dataType: 'date',
-                year: 'numeric',
-                month: 'numeric',
-                day: 'numeric'
-            });
-            return f.format(d);
-        }
-        function getDate(s) {
-            var d = new Date(s);
-            return format(d);
-        }
     </script>
 </body>
 </html>
