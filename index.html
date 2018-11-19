@@ -28,6 +28,13 @@
             
             $scope.format = function(s) {
                 var d = new Date(s);
+                var f = getFormatter();
+                return f.format(d);
+            }
+            function getFormatter() {
+                return getDateFormatter();
+            }
+            function getDateFormatter() {
                 var f = Intl.DateTimeFormat('en-US', {
                     nullString: '–',
                     dataType: 'date',
@@ -35,7 +42,11 @@
                     month: 'numeric',
                     day: 'numeric'
                 });
-                return f.format(d);
+                return {
+                    format: function format(value) {
+                        return f.format(value);
+                    }
+                }
             }
         });
     </script>
