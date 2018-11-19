@@ -11,18 +11,20 @@
 </head>
 <body ng-app="plunker" ng-cloak>
     <div ng-controller="MainCtrl">
-        <span>Date 1: {{format('1995-12-17T03:24:00')}}</span><br/>
-        <span>Date 2: {{format('1969-01-01T00:00:00')}}</span><br/>
-        <span>Date 3: {{format('1995/12/17 03:24:00')}}</span><br/>
-        <span>Date 4: {{format('1968/01/01 00:00:00')}}</span>
+        <span>Date 1: {{format.date(dates.date1, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date 2: {{format.date(dates.date2, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date 3: {{format.date(dates.date3, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date 4: {{format.date(dates.date4, 'yyyy-mm-dd')}}</span>
     </div>
     <script>
         angular.module('plunker', []).controller('MainCtrl', function($scope) {
             $scope.name = 'Plunker';
-//             $scope.date1 = getDate('1995-12-17T03:24:00');
-//             $scope.date2 = getDate('1969-01-01T00:00:00');
-//             $scope.date3 = getDate('1995/12/17 03:24:00');
-//             $scope.date4 = getDate('1969/01/01 00:00:00');
+                $scope.dates = {
+                    date1: '1995-12-17T03:24:00',
+                    date2: '1969-01-01T00:00:00',
+                    date3: '1995/12/17 03:24:00',
+                    date4: '1969/01/01 00:00:00'
+                };
             
             $scope.format= function(s) {
                 var d = new Date(s);
