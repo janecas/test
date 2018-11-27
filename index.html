@@ -15,7 +15,8 @@
         <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd')}}</span><br/>
         <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd')}}</span><br/>
         <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd')}}</span><br/>
-        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd')}}</span>
+        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd')}}</span><br/>
+        <span>Errors: {{error}}</span>
     </div>
     <script>
         angular.module('plunker', []).controller('MainCtrl', function($scope) {
@@ -46,8 +47,12 @@
                 };
             
             $scope.format = function(s, alias) {
-                var d = new Date(s);
-                console.log('new date:', d);
+                var d;
+                try {
+                    d = new Date(s);
+                } catch(ex) {
+                    $scope.error = ex;
+                }
                 var f = getFormatter();
                 return f.format(d);
             }
