@@ -55,6 +55,11 @@
             
             $scope.format = function(s, alias) {
                 var d = new Date(s);
+                if (!isValidDate(d)) {
+                    s = s.replace(/-/g, '/');
+                    s = s.replace('T', ' ');
+                    d = new Date(s);
+                }
                 var f = getFormatter();
                 return f.format(d);
             }
@@ -69,6 +74,9 @@
                         return f.format(value);
                     }
                 }
+            }
+            function isValidDate(value) {
+                return Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime());
             }
         });
     </script>
