@@ -12,10 +12,14 @@
 </head>
 <body ng-app="plunker" ng-cloak>
     <div ng-controller="MainCtrl">
-        <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd')}} {{new Date(dates.date1)}}</span><br/>
-        <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd')}} {{new Date(dates.date2)}}</span><br/>
-        <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd')}} {{new Date(dates.date3)}}</span><br/>
-        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd')}} {{new Date(dates.date4)}}</span><br/>
+        <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd')}}</span><br/>
+        <span>Date: {{ d1 }}</span><br/>
+        <span>Date: {{ d2 }}</span><br/>
+        <span>Date: {{ d3 }}</span><br/>
+        <span>Date: {{ d4 }}</span><br/>
     </div>
     <script>
         angular.module('plunker', []).controller('MainCtrl', function($scope) {
@@ -44,6 +48,10 @@
                     date3: "1995/12/17 03:24:00",
                     date4: "1969/01/01 00:00:00"
                 };
+            $scope.d1 = new Date("1995-12-17T03:24:00");
+            $scope.d2 = new Date("1969-01-01T00:00:00");
+            $scope.d3 = new Date("1995/12/17 03:24:00");
+            $scope.d4 = new Date("1969/01/01 00:00:00");
             
             $scope.format = function(s, alias) {
                 var d = new Date(s);
