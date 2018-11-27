@@ -12,11 +12,10 @@
 </head>
 <body ng-app="plunker" ng-cloak>
     <div ng-controller="MainCtrl">
-        <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd')}}</span><br/>
-        <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd')}}</span><br/>
-        <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd')}}</span><br/>
-        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd')}}</span><br/>
-        <span>Errors: {{error}}</span>
+        <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd')}} {{new Date(dates.date1)}}</span><br/>
+        <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd')}} {{new Date(dates.date2)}}</span><br/>
+        <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd')}} {{new Date(dates.date3)}}</span><br/>
+        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd')}} {{new Date(dates.date4)}}</span><br/>
     </div>
     <script>
         angular.module('plunker', []).controller('MainCtrl', function($scope) {
@@ -47,12 +46,7 @@
                 };
             
             $scope.format = function(s, alias) {
-                var d;
-                try {
-                    d = new Date(s);
-                } catch(ex) {
-                    $scope.error = ex;
-                }
+                var d = new Date(s);
                 var f = getFormatter();
                 return f.format(d);
             }
