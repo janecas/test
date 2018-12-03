@@ -1,81 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Date test</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script type="text/javascript" src="//cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en,URL,Promise"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Data table test</title>
 </head>
-<body ng-app="plunker" ng-cloak>
-    <div ng-controller="MainCtrl">
-        <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd', true)}}</span><br/>
-        <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd', true)}}</span><br/>
-        <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd', true)}}</span><br/>
-        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd', true)}}</span><br/><br/>
-        <span>Date 1: {{format(dates.date1, 'yyyy-mm-dd', false)}}</span><br/>
-        <span>Date 2: {{format(dates.date2, 'yyyy-mm-dd', false)}}</span><br/>
-        <span>Date 3: {{format(dates.date3, 'yyyy-mm-dd', false)}}</span><br/>
-        <span>Date 4: {{format(dates.date4, 'yyyy-mm-dd', false)}}</span><br/>
-    </div>
-    <script>
-        angular.module('plunker', []).controller('MainCtrl', function($scope) {
-            var formatAliases = {
-                "mm": {
-                    "dataType": "date",
-                    "month": "short"
-                },
-                "yyyy-mm-dd": {
-                    "dataType": "date",
-                    "year": "numeric",
-                    "month": "numeric",
-                    "day": "numeric"
-                },
-                "yy-mmm-dd": {
-                    "dataType": "date",
-                    "year": "2-digit",
-                    "month": "short",
-                    "day": "numeric"
-                }
-            }
-            $scope.name = 'Plunker';
-                $scope.dates = {
-                    date1: "1995-12-17T03:24:00",
-                    date2: "1969-01-01T00:00:00",
-                    date3: "1995/12/17 03:24:00",
-                    date4: "1969/01/01 00:00:00"
-                };
-            $scope.format = function(s, alias, fix) {
-                var d = new Date(s);
-                if (fix) {
-                    if (!isValidDate(d)) {
-                        s = s.replace(/-/g, '/');
-                        s = s.replace('T', ' ');
-                        d = new Date(s);
-                    }
-                }
-                var f = getFormatter();
-                return f.format(d);
-            }
-            function getFormatter(alias) {
-                return getDateFormatter(alias);
-            }
-            function getDateFormatter(alias) {
-                var nf = formatAliases[alias];
-                var f = Intl.DateTimeFormat('en-US', nf);
-                return {
-                    format: function format(value) {
-                        return f.format(value);
-                    }
-                }
-            }
-            function isValidDate(value) {
-                return Object.prototype.toString.call(value) === '[object Date]' && !isNaN(value.getTime());
-            }
-        });
-    </script>
+
+<body>
+  <table role="grid">
+    <caption>My test table</caption>
+      <thead>
+        <tr role="row">
+            <th scope="col" role="columnheader" aria-sort="descending">Fruit</th>
+            <th scope="col" role="columnheader">Colour</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>Banana</td>
+            <td>Yellow</td>
+        </tr>
+        <tr>
+            <td>Apple</td>
+            <td>Green</td>
+        </tr>
+      </tbody>
+  </table>
 </body>
+
 </html>
