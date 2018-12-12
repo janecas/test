@@ -1,14 +1,19 @@
-      /*
-      #iframe-container {
-        width: 80vw;
-        height: 60vh;
-        border: 1px solid black;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-      }
-      */
+html {
+      height: 100%;
+      width: 100%;
+}
 
-      #iframe-container iframe {
-        height: 100%;
-        width: 100%;
-      }
+/*
+#iframe-container {
+  width: 80vw;
+  height: 60vh;
+  border: 1px solid black;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+*/
+
+#iframe-container iframe {
+  height: 100%;
+  width: 100%;
+}
