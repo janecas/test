@@ -102,10 +102,5 @@ $(document).ready(function() {
           });
       }
   
-      var newAccessTokenObj = localStorage.getItem('newAccessTokenObj');
-      if ( newAccessTokenObj) {
-        newAccessTokenObj = JSON.parse(newAccessTokenObj);
-        newAccessToken = newAccessTokenObj.token_type + ' ' + newAccessTokenObj.access_token;   
-        executeMorningstarLoader();
-      }
+    executeMorningstarLoader();
   });
