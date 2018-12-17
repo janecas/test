@@ -109,5 +109,5 @@ $(document).ready(function() {
     }
   
     executeMorningstarLoader();
-    getWidth();
+    setTimeout(getWidth(), 2000);
   });
