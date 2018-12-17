@@ -104,7 +104,8 @@ $(document).ready(function() {
     
     function getWidth() {
         var w = $('#xray-container').width();
-        $('#w').text(w);
+        var w2 = $("#ec-xray-container-xray-main-group-section-panel-tool-bar").width();
+        $('#w').text(w + ', ' + w2);
     }
   
     executeMorningstarLoader();
