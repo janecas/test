@@ -101,12 +101,12 @@ $(document).ready(function() {
 
           });
       }
-    
+   
+  
+    executeMorningstarLoader();
+  });
     function getWidth() {
         var w = $('#xray-container').width();
         var w2 = $("#ec-xray-container-xray-main-group-section-panel-tool-bar").width();
         $('#w').text(w + ', ' + w2);
     }
-  
-    executeMorningstarLoader();
-  });
