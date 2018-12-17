@@ -101,6 +101,12 @@ $(document).ready(function() {
 
           });
       }
+    
+    function getWidth() {
+        var w = $('#xray-container').width();
+        $('#w').text(w);
+    }
   
     executeMorningstarLoader();
+    getWidth();
   });
