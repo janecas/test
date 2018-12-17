@@ -9,7 +9,7 @@ body {
 
 #iframe-container {
   width: 80vw;
-  height: 100%;
+  height: 90%;
   border: 1px solid black;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
