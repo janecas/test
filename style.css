@@ -3,6 +3,10 @@ html {
       width: 100%;
 }
 
+body {
+  height: 100%;
+}
+
 #iframe-container {
   width: 80vw;
   height: 100%;
