@@ -16,6 +16,7 @@ body {
 }
 
 #iframe-container iframe {
-  height: 100%;
   width: 100%;
+  flex: auto;
+  border: none;
 }
