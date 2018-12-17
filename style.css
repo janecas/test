@@ -20,6 +20,8 @@ body {
   display: flex;
   flex: auto;
   flex-direction: column;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 #iframe-container iframe {
